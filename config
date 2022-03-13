@@ -1,0 +1,21 @@
+lxc.arch = arm64
+lxc.hook.pre-start  = /opt/compatible/android/lxc/androidcompat/pre-start.sh
+lxc.init.cmd = /init
+lxc.autodev = 0
+lxc.mount.entry = /opt/compatible/android/vendor  vendor  bind bind,create=dir 0 0
+lxc.mount.entry = /opt/compatible/android/data-compat  data  bind bind,create=dir 0 0
+lxc.mount.entry = /opt/compatible/android/cache-compat  cache  bind bind,create=dir 0 0
+lxc.mount.entry = /var  var  bind bind,create=dir 0 0
+lxc.mount.entry = /run  run  bind bind,create=dir 0 0
+lxc.rootfs.mount = /opt/compatible/android/system
+#lxc.rootfs.path = /home/system.img
+lxc.rootfs.path = /opt/compatible/android/system
+#lxc.rootfs.options = rw
+lxc.uts.name = androidcompat
+lxc.net.0.type = veth
+lxc.net.0.flags = up
+lxc.net.0.link = lxcbr0
+lxc.net.0.name = eth0
+lxc.net.0.hwaddr = 4a:49:43:49:79:b0
+lxc.net.0.ipv4.address = 10.0.3.5/24 10.0.3.255
+lxc.net.0.ipv4.gateway = 10.0.3.1
